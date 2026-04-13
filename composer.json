@@ -1,0 +1,55 @@
+{
+    "name": "drps/code-standard",
+    "description": "Code Standards for PHP CS Fixer",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "standards",
+        "fixer",
+        "PHP"
+    ],
+    "authors": [
+        {
+            "name": "Alexander Bondarenko",
+            "email": "abond.coder@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "friendsofphp/php-cs-fixer": "^3.95"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drps\\CodeStandard\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true
+        },
+        "bump-after-update": "dev",
+        "platform": {
+            "php": "8.4.19"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": false,
+            "forward-command": true,
+            "target-directory": "tools"
+        }
+    },
+    "scripts": {
+        "composer-normalize": "@composer bin composer-normalize normalize --diff ../../composer.json",
+        "dep-analyser": "tools/composer-dependency-analyser/vendor/bin/composer-dependency-analyser",
+        "fixcs": "vendor/bin/php-cs-fixer fix --diff --verbose",
+        "phpstan": "tools/phpstan/vendor/bin/phpstan analyze",
+        "pre-command-run": "mkdir -p var",
+        "psalm": "tools/psalm/vendor/bin/psalm --show-info --no-diff --no-cache",
+        "rector": "tools/rector/vendor/bin/rector process"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "phpstan/phpstan": "^2.1.47"
+    },
+    "config": {
+        "bump-after-update": "dev",
+        "platform": {
+            "php": "8.4.19"
+        },
+        "sort-packages": true
+    }
+}
